@@ -66,7 +66,7 @@ class _LoginScreenState extends State<LoginScreen> {
             colors: [
               MyColors.gradient1, MyColors.gradient2
             ],
-            stops: [0.0, 0.8], // Posições das cores no degradê
+            stops: [0.0, 0.8], 
             begin: Alignment.topCenter,
             end: Alignment.bottomRight,
           ),
@@ -76,15 +76,15 @@ class _LoginScreenState extends State<LoginScreen> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          // Imagem fora do Container do formulário
+          
           Image.asset(
-            'assets/logo.png', // Substitua pelo caminho da sua imagem
-            height: 150, // Altura da imagem
-            fit: BoxFit.contain, // Ajuste o conteúdo da imagem
+            'assets/logo.png', 
+            height: 150, 
+            fit: BoxFit.contain, 
           ),
-          SizedBox(height: 20), // Espaçamento entre a imagem e o formulário
+          SizedBox(height: 20), 
 
-          // Container que contém o formulário
+          
           Center(
             child: Container(
               height: 400,
@@ -92,7 +92,7 @@ class _LoginScreenState extends State<LoginScreen> {
               margin: const EdgeInsets.all(10),
               decoration: BoxDecoration(
                 color: const Color.fromARGB(106, 255, 255, 255),
-                borderRadius: BorderRadius.circular(8.0), // Adiciona bordas arredondadas
+                borderRadius: BorderRadius.circular(8.0), 
                 border: Border.all(color: Colors.white, width: 2),
               ),
               child: Form(
@@ -102,8 +102,8 @@ class _LoginScreenState extends State<LoginScreen> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      // Campos do formulário aqui
-                      SizedBox(height: 20), // Espaçamento entre os campos do formulário
+                      
+                      SizedBox(height: 20), 
                    
                   TextFormField(
                     autofocus: true,
@@ -115,15 +115,15 @@ class _LoginScreenState extends State<LoginScreen> {
                             fillColor: Colors.white.withOpacity(0.2),
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(20),
-                              borderSide: BorderSide(color: Colors.white, width: 2), // Borda branca
+                              borderSide: BorderSide(color: Colors.white, width: 2), 
                               ),
                               enabledBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(20),
-                              borderSide: BorderSide(color: Colors.white, width: 2), // Borda branca quando habilitado
+                              borderSide: BorderSide(color: Colors.white, width: 2), 
                               ),
                               focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(20),
-                              borderSide: BorderSide(color: Colors.white, width: 2), // Borda branca quando em foco
+                              borderSide: BorderSide(color: Colors.white, width: 2), 
                               ),
                    
                     ),
@@ -164,15 +164,15 @@ class _LoginScreenState extends State<LoginScreen> {
                             fillColor: Colors.white.withOpacity(0.2),
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(20),
-                              borderSide: BorderSide(color: Colors.white, width: 2), // Borda branca
+                              borderSide: BorderSide(color: Colors.white, width: 2), 
                               ),
                               enabledBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(20),
-                              borderSide: BorderSide(color: Colors.white, width: 2), // Borda branca quando habilitado
+                              borderSide: BorderSide(color: Colors.white, width: 2), 
                               ),
                               focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(20),
-                              borderSide: BorderSide(color: Colors.white, width: 2), // Borda branca quando em foco
+                              borderSide: BorderSide(color: Colors.white, width: 2), 
                               ),
                    
                     ),
@@ -206,11 +206,11 @@ class _LoginScreenState extends State<LoginScreen> {
                       onTap: () {
                             Navigator.push(context, MaterialPageRoute(builder: (context) => CadastroScreen()));
                           },
-                      child: Center( // Centraliza o texto
+                      child: Center( 
                         child: const Text(
                           "Não tem uma conta? Faça Cadastro",
                           style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12, color: Colors.white),
-                          textAlign: TextAlign.center, // Centraliza o texto dentro do widget
+                          textAlign: TextAlign.center, 
                         ),
                       ),
                     ),
