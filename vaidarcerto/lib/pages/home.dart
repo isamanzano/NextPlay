@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:projetostreaming/pages/cadastro.dart';
+import 'package:projetostreaming/pages/conta.dart';
+import 'package:projetostreaming/pages/categorias.dart';
+import 'package:projetostreaming/pages/configuracoes.dart';
 import 'package:projetostreaming/shared/style.dart';
 
 void main() {
@@ -58,11 +61,24 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.end,
           children: <Widget>[
+            AppBar(
+              elevation: 0,
+              leading: IconButton(
+                icon: Icon(Icons.menu),
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+              ),
+            ),
+            Spacer(),
             ListTile(
               leading: Icon(Icons.person),
               title: Text('Conta'),
               onTap: () {
                 Navigator.pop(context);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Conta()));
               },
             ),
             ListTile(
@@ -70,18 +86,25 @@ class _HomeScreenState extends State<HomeScreen> {
               title: Text('Categorias'),
               onTap: () {
                 Navigator.pop(context);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Categorias()));
               },
             ),
             ListTile(
               leading: Icon(Icons.settings),
-              title: Text('Settings'),
+              title: Text('Configurações'),
               onTap: () {
                 Navigator.pop(context);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Configuracoes()));
               },
             ),
           ],
         ),
-      ),
+    ),
+
       //NAVBAR
       bottomNavigationBar: NavigationBar(
         onDestinationSelected: (int index) {
@@ -177,7 +200,7 @@ class _HomeScreenState extends State<HomeScreen> {
           fit: BoxFit.cover,
           child: InkWell(
             onTap: () {
-              // Adicione a função para abrir o URL ou outra ação desejada aqui
+              // Adicione função para abrir o URL 
             },
           ),
         ),

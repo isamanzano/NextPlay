@@ -3,6 +3,9 @@ import 'package:projetostreaming/pages/home.dart';
 import 'package:projetostreaming/pages/login.dart';
 import 'package:projetostreaming/pages/cadastro.dart';
 import 'package:projetostreaming/pages/splash.dart';
+import 'package:projetostreaming/pages/conta.dart';
+import 'package:projetostreaming/pages/categorias.dart';
+import 'package:projetostreaming/pages/configuracoes.dart';
 import 'package:projetostreaming/shared/style.dart';
 import 'package:firebase_core/firebase_core.dart';
 
@@ -33,6 +36,9 @@ class MyApp extends StatelessWidget {
       '/login' : (context) =>  LoginScreen(),
       '/cadastro' : (context) => const CadastroScreen(),
       '/home' : (context) => Home(),
+      '/conta': (context) => Conta(),
+      '/categorias': (context) => Categorias(),
+      '/configuracoes': (context) => Configuracoes(),
      },
     ); 
   }
