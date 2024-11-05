@@ -74,7 +74,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             ListTile(
               leading: Icon(Icons.settings),
-              title: Text('Settings'),
+              title: Text('Configurações'),
               onTap: () {
                 Navigator.pop(context);
               },
@@ -82,6 +82,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
         ),
       ),
+      
       //NAVBAR
       bottomNavigationBar: NavigationBar(
         onDestinationSelected: (int index) {
