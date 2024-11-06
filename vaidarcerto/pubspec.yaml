@@ -68,6 +68,12 @@ flutter:
     - assets/estadiodefutebol.jpg
     - assets/eigames.jpg
     - assets/litoralnews.jpg
+    - assets/brasileiraocard.png
+    - assets/cs2card.jpg
+    - assets/fifacard.jpg
+    - assets/laligacard.jpg
+    - assets/minecraftcard.jpg
+    - assets/valorantcard.jpg
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in

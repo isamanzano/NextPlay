@@ -27,16 +27,40 @@ class CategoriasScreen extends StatefulWidget {
 
 class _CategoriasScreenState extends State<CategoriasScreen> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
-  String? _selectedValue;
-  bool _isDropdownOpened = false;
-
   int currentPageIndex = 0;
+
+  final List<Game> games = [
+    Game('Valorant', 'https://valorantcard.jpg'),
+    Game('CS2', 'https://cs2card.jpg'),
+    Game('La liga', 'https://laligacard.jpg'),
+    Game('Minecraft', 'https://minecraftcard.jpg'),
+    Game('Fifa', 'https://fifacard.jpg'),
+    Game('Brasileirão', 'https://brasileiraocard.png'),
+  ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       key: _scaffoldKey,
       appBar: AppBar(
+        title: Text("Categorias"),
+      ),
+
+      // Grid de cards 
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: GridView.builder(
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2, 
+            childAspectRatio: 0.7, 
+            crossAxisSpacing: 8,
+            mainAxisSpacing: 8,
+          ),
+          itemCount: games.length,
+          itemBuilder: (context, index) {
+            return GameCard(game: games[index]);
+          },
+        ),
       ),
 
       // NAVBAR
@@ -67,6 +91,47 @@ class _CategoriasScreenState extends State<CategoriasScreen> {
           ),
         ],
       ),
+    );
+  }
+}
+
+// Card continuação
+class Game {
+  final String name;
+  final String imageUrl;
+
+  Game(this.name, this.imageUrl);
+}
+
+// Cada card 
+class GameCard extends StatelessWidget {
+  final Game game;
+
+  GameCard({required this.game});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Expanded(
+          child: Container(
+            decoration: BoxDecoration(
+              color: Colors.grey[800],
+              borderRadius: BorderRadius.circular(8),
+              image: DecorationImage(
+                image: NetworkImage(game.imageUrl),
+                fit: BoxFit.cover,
+              ),
+            ),
+          ),
+        ),
+        SizedBox(height: 8),
+        Text(
+          game.name,
+          style: TextStyle(color: Colors.white, fontSize: 14),
+          textAlign: TextAlign.center,
+        ),
+      ],
     );
   }
 }
