@@ -30,12 +30,12 @@ class _CategoriasScreenState extends State<CategoriasScreen> {
   int currentPageIndex = 0;
 
   final List<Game> games = [
-    Game('Valorant', 'https://valorantcard.jpg'),
-    Game('CS2', 'https://cs2card.jpg'),
-    Game('La liga', 'https://laligacard.jpg'),
-    Game('Minecraft', 'https://minecraftcard.jpg'),
-    Game('Fifa', 'https://fifacard.jpg'),
-    Game('Brasileirão', 'https://brasileiraocard.png'),
+    Game('Valorant', 'assets/valorantcard.jpg'),
+    Game('CS2', 'assets/cs2card.jpg'),
+    Game('La liga', 'assets/laligacard.jpg'),
+    Game('Minecraft', 'assets/minecraftcard.jpg'),
+    Game('Fifa', 'assets/fifacard.jpg'),
+    Game('Brasileirão', 'assets/brasileiraocard.png'),
   ];
 
   @override
@@ -43,8 +43,17 @@ class _CategoriasScreenState extends State<CategoriasScreen> {
     return Scaffold(
       key: _scaffoldKey,
       appBar: AppBar(
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.pop(context);
+            Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Home())); 
+          },
+        ),
         title: Text("Categorias"),
-      ),
+  ),
 
       // Grid de cards 
       body: Padding(
@@ -119,7 +128,7 @@ class GameCard extends StatelessWidget {
               color: Colors.grey[800],
               borderRadius: BorderRadius.circular(8),
               image: DecorationImage(
-                image: NetworkImage(game.imageUrl),
+                image: AssetImage(game.imageUrl),
                 fit: BoxFit.cover,
               ),
             ),
