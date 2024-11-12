@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:projetostreaming/pages/cadastro.dart';
-import 'package:projetostreaming/pages/home.dart';
-import 'package:projetostreaming/pages/login.dart';
-import 'package:projetostreaming/shared/style.dart';
+import 'package:vaidarcerto/pages/cadastro.dart';
+import 'package:vaidarcerto/pages/home.dart';
+import 'package:vaidarcerto/pages/login.dart';
+import 'package:vaidarcerto/shared/style.dart';
 import 'package:firebase_auth/firebase_auth.dart'; 
 
 // Define um widget Stateful para a tela de login
