@@ -7,6 +7,7 @@ import 'package:vaidarcerto/pages/pesquisa.dart';
 import 'package:vaidarcerto/pages/historico.dart';
 import 'package:vaidarcerto/pages/voce.dart';
 import 'package:vaidarcerto/shared/style.dart';
+import './components/navbar.dart';
 
 void main() {
   runApp(Home());
@@ -14,7 +15,7 @@ void main() {
 
 class Home extends StatelessWidget {
   @override
-  Widget build(BuildContext) {
+  Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: '',
@@ -36,7 +37,6 @@ class _HomeScreenState extends State<HomeScreen> {
   String? _selectedValue;
   bool _isDropdownOpened = false;
 
-
   void _toggleDropdown() {
     setState(() {
       _isDropdownOpened = !_isDropdownOpened;
@@ -46,7 +46,7 @@ class _HomeScreenState extends State<HomeScreen> {
   int currentPageIndex = 0;
 
   final List<Widget> pages = [
-    HomeScreen(), 
+    HomePage(), 
     Pesquisa(), 
     Historico(),
     Voce(),    
@@ -66,7 +66,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ),
 
-      //DROPDOWN
+      //DRAWER
       drawer: Drawer(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.end,
@@ -113,114 +113,101 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ],
         ),
-    ),
+      ),
+      body: pages[currentPageIndex],
 
-      //NAVBAR
-      bottomNavigationBar: NavigationBar(
-        onDestinationSelected: (int index) {
+      // NavBar componentizado
+      bottomNavigationBar: NavBar(
+        currentIndex: currentPageIndex,
+        onItemSelected: (int index) {
           setState(() {
             currentPageIndex = index;
           });
         },
-        indicatorColor: Colors.blue,
-        selectedIndex: currentPageIndex,
-        destinations: [
-          NavigationDestination(
-            icon: Icon(Icons.home, color: Colors.white),
-            label: 'Home',
-          ),
-          NavigationDestination(
-            icon: Icon(Icons.search, color: Colors.white),
-            label: 'Pesquisa',
-          ),
-          NavigationDestination(
-            icon: Icon(Icons.history, color: Colors.white),
-            label: 'Histórico',
-          ),
-          NavigationDestination(
-            icon: Icon(Icons.person, color: Colors.white),
-            label: 'Você',
-          ),
-        ],
       ),
+    );
+  }
+}
 
-     // CARD ESTILO YOUTUBE
-      body: ListView(
-        padding: const EdgeInsets.all(8.0),
-        children: [
-          buildYouTubeCard(
-            context,
-            'TSUNAMI AUTOMÁTICO - Minecraft Em busca da casa automática #308',
-            'assets/tsunamiautomatico.jpg',
-            'Viniccius13',
-            '3,7 mi de visualizações',
-            'assets/viniccius13.jpg', 
-          ),
-          buildYouTubeCard(
-            context,
-            'VALORANT AO VIVO! - O NOVO JOGO DO MOMENTO?',
-            'assets/valorantaovivo.jpg',
-            'Ei Games',
-            '15 mil de visualizações',
-            'assets/eigames.jpg', 
-          ),
-          buildYouTubeCard(
-            context,
-            'MANCHESTER CITY X REAL MADRID TRANSMISSÃO AO VIVO DIRETO DO ETIHAD STADIUM - CHAMPIONS LEAGUE 2023',
-            'assets/realmadrid.jpg',
-            'Litoral News',
-            '1 mi de visualizações',
-            'assets/litoralnews.jpg', 
-          ),
-          buildYouTubeCard(
-            context,
-            'Farm de Madeira 100% Automática - Minecraft Em busca da casa automática #342',
-            'assets/farmdemadeira.jpg',
-            'Viniccius13',
-            '3,8 mi de visualizações',
-            'assets/viniccius13.jpg', 
-          ),
-        ],
-      ),
+// CARD ESTILO YOUTUBE
+class HomePage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return ListView(
+      padding: const EdgeInsets.all(8.0),
+      children: [
+        buildYouTubeCard(
+          context,
+          'TSUNAMI AUTOMÁTICO - Minecraft Em busca da casa automática #308',
+          'assets/tsunamiautomatico.jpg',
+          'Viniccius13',
+          '3,7 mi de visualizações',
+          'assets/viniccius13.jpg', 
+        ),
+        buildYouTubeCard(
+          context,
+          'VALORANT AO VIVO! - O NOVO JOGO DO MOMENTO?',
+          'assets/valorantaovivo.jpg',
+          'Ei Games',
+          '15 mil de visualizações',
+          'assets/eigames.jpg', 
+        ),
+        buildYouTubeCard(
+          context,
+          'MANCHESTER CITY X REAL MADRID TRANSMISSÃO AO VIVO DIRETO DO ETIHAD STADIUM - CHAMPIONS LEAGUE 2023',
+          'assets/realmadrid.jpg',
+          'Litoral News',
+          '1 mi de visualizações',
+          'assets/litoralnews.jpg', 
+        ),
+        buildYouTubeCard(
+          context,
+          'Farm de Madeira 100% Automática - Minecraft Em busca da casa automática #342',
+          'assets/farmdemadeira.jpg',
+          'Viniccius13',
+          '3,8 mi de visualizações',
+          'assets/viniccius13.jpg', 
+        ),
+      ],
     );
   }
 
   // CONTINUAÇÃO CARD ESTILO YOUTUBE
   Widget buildYouTubeCard(
-  BuildContext context,
-  String title,
-  String imageUrl,
-  String channelName,
-  String videoInfo,
-  String avatarImageUrl, 
-) {
-  return Card(
-    elevation: 5,
-    shape: RoundedRectangleBorder(
-      borderRadius: BorderRadius.circular(10),
-    ),
-    margin: const EdgeInsets.symmetric(vertical: 10),
-    child: Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Ink.image(
-          image: AssetImage(imageUrl), 
-          height: 200,
-          width: double.infinity,
-          fit: BoxFit.cover,
-          child: InkWell(
-            onTap: () {
-              // Adicione função para abrir o URL 
-            },
+    BuildContext context,
+    String title,
+    String imageUrl,
+    String channelName,
+    String videoInfo,
+    String avatarImageUrl, 
+  ) {
+    return Card(
+      elevation: 5,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10),
+      ),
+      margin: const EdgeInsets.symmetric(vertical: 10),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Ink.image(
+            image: AssetImage(imageUrl), 
+            height: 200,
+            width: double.infinity,
+            fit: BoxFit.cover,
+            child: InkWell(
+              onTap: () {
+                // Adicione função para abrir o URL 
+              },
+            ),
           ),
-        ),
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 CircleAvatar(
-                  backgroundImage:AssetImage(avatarImageUrl), 
+                  backgroundImage: AssetImage(avatarImageUrl), 
                   radius: 20,
                 ),
                 const SizedBox(width: 10),
