@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:vaidarcerto/pages/home.dart';
 import 'package:vaidarcerto/shared/style.dart';
+import './components/navbar.dart';
+import './components/drawer.dart';
 
 void main() {
   runApp(Historico());

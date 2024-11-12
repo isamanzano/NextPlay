@@ -1,13 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:vaidarcerto/pages/cadastro.dart';
-import 'package:vaidarcerto/pages/conta.dart';
-import 'package:vaidarcerto/pages/categorias.dart';
-import 'package:vaidarcerto/pages/configuracoes.dart';
 import 'package:vaidarcerto/pages/pesquisa.dart';
 import 'package:vaidarcerto/pages/historico.dart';
 import 'package:vaidarcerto/pages/voce.dart';
-import 'package:vaidarcerto/shared/style.dart';
 import './components/navbar.dart';
+import './components/drawer.dart';
 
 void main() {
   runApp(Home());
@@ -67,53 +63,7 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
 
       //DRAWER
-      drawer: Drawer(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: <Widget>[
-            AppBar(
-              elevation: 0,
-              leading: IconButton(
-                icon: Icon(Icons.menu),
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-              ),
-            ),
-            Spacer(),
-            ListTile(
-              leading: Icon(Icons.person),
-              title: Text('Conta'),
-              onTap: () {
-                Navigator.pop(context);
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => Conta()));
-              },
-            ),
-            ListTile(
-              leading: Icon(Icons.video_library),
-              title: Text('Categorias'),
-              onTap: () {
-                Navigator.pop(context);
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => Categorias()));
-              },
-            ),
-            ListTile(
-              leading: Icon(Icons.settings),
-              title: Text('Configurações'),
-              onTap: () {
-                Navigator.pop(context);
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => Configuracoes()));
-              },
-            ),
-          ],
-        ),
-      ),
+      drawer: AppDrawer(),
       body: pages[currentPageIndex],
 
       // NavBar componentizado
