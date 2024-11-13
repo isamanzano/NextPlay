@@ -1,7 +1,8 @@
+// PÁGINA FEITO POR ISABELA MANZANO, COM COLABORAÇÃO DE GABRIEL OLIVEIRA
+
 import 'package:flutter/material.dart';
 import 'package:vaidarcerto/pages/cadastro.dart';
 import 'package:vaidarcerto/pages/home.dart';
-import 'package:vaidarcerto/pages/login.dart';
 import 'package:vaidarcerto/shared/style.dart';
 import 'package:firebase_auth/firebase_auth.dart'; 
 

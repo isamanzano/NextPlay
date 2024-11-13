@@ -1,4 +1,5 @@
-// navbar.dart
+// PÁGINA FEITO POR ISABELA MANZANO, COM COLABORAÇÃO DE GABRIEL OLIVEIRA E MATHEUS RODOLPHO
+
 import 'package:flutter/material.dart';
 
 class NavBar extends StatelessWidget {
