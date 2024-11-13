@@ -1,4 +1,4 @@
-// PÁGINA FEITO POR GABRIEL OLIVEIRA
+// PÁGINA FEITO POR ISABELA MANZANO
 
 import 'package:flutter/material.dart';
 import 'package:vaidarcerto/pages/home.dart'; 
