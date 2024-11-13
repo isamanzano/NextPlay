@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:vaidarcerto/pages/home.dart';
+
 
 void main() {
   runApp(Pesquisa());
 }
+
+
+
 
 class Pesquisa extends StatelessWidget {
   @override
@@ -18,10 +23,16 @@ class Pesquisa extends StatelessWidget {
   }
 }
 
+
+
+
 class PesquisaScreen extends StatefulWidget {
   @override
   _PesquisaScreenState createState() => _PesquisaScreenState();
 }
+
+
+
 
 class _PesquisaScreenState extends State<PesquisaScreen> {
   final List<String> searchHistory = [
@@ -31,9 +42,15 @@ class _PesquisaScreenState extends State<PesquisaScreen> {
     "Jogo Corinthians ao vivo"
   ];
 
+
+
+
   // Controlador do TextField
   TextEditingController _controller = TextEditingController();
   String query = '';
+
+
+
 
   // Método para tratar mudança no texto de pesquisa
   void _onSearchChanged(String value) {
@@ -42,6 +59,9 @@ class _PesquisaScreenState extends State<PesquisaScreen> {
     });
   }
 
+
+
+
   // Resultados baseados no histórico de pesquisa
   List<String> _getSearchResults() {
     return searchHistory
@@ -49,11 +69,17 @@ class _PesquisaScreenState extends State<PesquisaScreen> {
         .toList();
   }
 
+
+
+
   @override
   void dispose() {
     _controller.dispose(); // Liberar o controlador quando não for mais necessário
     super.dispose();
   }
+
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -61,6 +87,15 @@ class _PesquisaScreenState extends State<PesquisaScreen> {
       backgroundColor: Colors.black,
       appBar: AppBar(
         backgroundColor: Colors.black,
+        leading: IconButton(
+        icon: Icon(Icons.arrow_back),
+        onPressed: () {
+            Navigator.pop(context);
+            Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Home()));
+          },
+      ),
         title: Row(
           children: [
             Expanded(
@@ -146,3 +181,9 @@ class _PesquisaScreenState extends State<PesquisaScreen> {
     );
   }
 }
+
+
+
+
+
+
