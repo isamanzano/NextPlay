@@ -9,6 +9,7 @@ import 'package:vaidarcerto/pages/configuracoes.dart';
 import 'package:vaidarcerto/pages/pesquisa.dart';
 import 'package:vaidarcerto/pages/historico.dart';
 import 'package:vaidarcerto/pages/voce.dart';
+import 'package:vaidarcerto/pages/resultado.dart';
 import 'package:vaidarcerto/shared/style.dart';
 import 'package:firebase_core/firebase_core.dart';
 

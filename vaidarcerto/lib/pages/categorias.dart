@@ -72,35 +72,6 @@ class _CategoriasScreenState extends State<CategoriasScreen> {
           },
         ),
       ),
-
-      // NAVBAR
-      bottomNavigationBar: NavigationBar(
-        onDestinationSelected: (int index) {
-          setState(() {
-            currentPageIndex = index;
-          });
-        },
-        indicatorColor: Colors.blue,
-        selectedIndex: currentPageIndex,
-        destinations: [
-          NavigationDestination(
-            icon: Icon(Icons.home, color: Colors.white),
-            label: 'Home',
-          ),
-          NavigationDestination(
-            icon: Icon(Icons.search, color: Colors.white),
-            label: 'Pesquisa',
-          ),
-          NavigationDestination(
-            icon: Icon(Icons.history, color: Colors.white),
-            label: 'Histórico',
-          ),
-          NavigationDestination(
-            icon: Icon(Icons.person, color: Colors.white),
-            label: 'Você',
-          ),
-        ],
-      ),
     );
   }
 }

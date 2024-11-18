@@ -1,14 +1,11 @@
-// PÁGINA FEITO POR GABRIEL OLIVEIRA
-
 import 'package:flutter/material.dart';
 import 'package:vaidarcerto/pages/home.dart';
+import 'package:vaidarcerto/pages/resultado.dart'; // Certifique-se de ter importado ResultadoScreen
 
 
 void main() {
   runApp(Pesquisa());
 }
-
-
 
 
 class Pesquisa extends StatelessWidget {
@@ -26,14 +23,10 @@ class Pesquisa extends StatelessWidget {
 }
 
 
-
-
 class PesquisaScreen extends StatefulWidget {
   @override
   _PesquisaScreenState createState() => _PesquisaScreenState();
 }
-
-
 
 
 class _PesquisaScreenState extends State<PesquisaScreen> {
@@ -45,16 +38,10 @@ class _PesquisaScreenState extends State<PesquisaScreen> {
   ];
 
 
-
-
-  // Controlador do TextField
   TextEditingController _controller = TextEditingController();
   String query = '';
 
 
-
-
-  // Método para tratar mudança no texto de pesquisa
   void _onSearchChanged(String value) {
     setState(() {
       query = value;
@@ -62,9 +49,6 @@ class _PesquisaScreenState extends State<PesquisaScreen> {
   }
 
 
-
-
-  // Resultados baseados no histórico de pesquisa
   List<String> _getSearchResults() {
     return searchHistory
         .where((item) => item.toLowerCase().contains(query.toLowerCase()))
@@ -72,14 +56,26 @@ class _PesquisaScreenState extends State<PesquisaScreen> {
   }
 
 
-
-
   @override
   void dispose() {
-    _controller.dispose(); // Liberar o controlador quando não for mais necessário
+    _controller.dispose();
     super.dispose();
   }
 
+
+  void _navigateToDetail(String searchResult) {
+    if (searchResult.toLowerCase() == 'valorant') {
+     Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => ResultadoScreen()),
+      );
+    } else {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => DetailScreen(item: searchResult)),
+      );
+    }
+  }
 
 
 
@@ -90,14 +86,15 @@ class _PesquisaScreenState extends State<PesquisaScreen> {
       appBar: AppBar(
         backgroundColor: Colors.black,
         leading: IconButton(
-        icon: Icon(Icons.arrow_back),
-        onPressed: () {
+          icon: Icon(Icons.arrow_back),
+          onPressed: () {
             Navigator.pop(context);
             Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => Home()));
+              context,
+              MaterialPageRoute(builder: (context) => Home()),
+            );
           },
-      ),
+        ),
         title: Row(
           children: [
             Expanded(
@@ -111,7 +108,7 @@ class _PesquisaScreenState extends State<PesquisaScreen> {
                   controller: _controller,
                   onChanged: _onSearchChanged,
                   autofocus: true,
-                  style: TextStyle(color: Colors.black), // Define a cor do texto para preto
+                  style: TextStyle(color: Colors.black),
                   decoration: InputDecoration(
                     hintText: 'Encontre seu jogo',
                     hintStyle: TextStyle(color: Colors.grey),
@@ -131,9 +128,9 @@ class _PesquisaScreenState extends State<PesquisaScreen> {
                 icon: Icon(Icons.search, color: Colors.white),
                 onPressed: () {
                   setState(() {
-                    // Atualiza o estado para forçar o rebuild dos resultados
                     query = _controller.text;
                   });
+                  _navigateToDetail(query); // Verifica o termo e abre a tela correspondente
                 },
               ),
             ),
@@ -145,7 +142,6 @@ class _PesquisaScreenState extends State<PesquisaScreen> {
         child: Column(
           children: [
             const SizedBox(height: 16),
-            // Exibe os resultados da pesquisa
             Expanded(
               child: query.isEmpty
                   ? ListView.builder(
@@ -158,8 +154,9 @@ class _PesquisaScreenState extends State<PesquisaScreen> {
                           onTap: () {
                             setState(() {
                               query = suggestion;
-                              _controller.text = suggestion; // Atualiza o campo de pesquisa
+                              _controller.text = suggestion;
                             });
+                            _navigateToDetail(suggestion); // Navega para os detalhes
                           },
                         );
                       },
@@ -171,7 +168,7 @@ class _PesquisaScreenState extends State<PesquisaScreen> {
                         return ListTile(
                           title: Text(result, style: TextStyle(color: Colors.white)),
                           onTap: () {
-                            // Ação ao clicar no resultado (pode ser personalizada)
+                            _navigateToDetail(result); // Navega para os detalhes
                           },
                         );
                       },
@@ -185,7 +182,25 @@ class _PesquisaScreenState extends State<PesquisaScreen> {
 }
 
 
+class DetailScreen extends StatelessWidget {
+  final String item;
 
 
+  DetailScreen({required this.item});
 
 
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(item),
+      ),
+      body: Center(
+        child: Text(
+          'Detalhes para "$item"',
+          style: TextStyle(fontSize: 24),
+        ),
+      ),
+    );
+  }
+}

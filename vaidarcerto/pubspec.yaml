@@ -74,6 +74,9 @@ flutter:
     - assets/laligacard.jpg
     - assets/minecraftcard.jpg
     - assets/valorantcard.jpg
+    - assets/realxbarça.jpg
+    - assets/narede.jpg
+    - assets/jovempan.png
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in

@@ -1,21 +1,19 @@
-// PÁGINA FEITO POR ISABELA MANZANO
-
 import 'package:flutter/material.dart';
+import 'package:vaidarcerto/pages/conta.dart';
 import 'package:vaidarcerto/pages/categorias.dart';
 import 'package:vaidarcerto/pages/configuracoes.dart';
-import 'package:vaidarcerto/pages/conta.dart';
 import 'package:vaidarcerto/pages/pesquisa.dart';
 import 'package:vaidarcerto/pages/historico.dart';
 import 'package:vaidarcerto/pages/voce.dart';
 import './components/navbar.dart';
-import 'package:vaidarcerto/pages/principal.dart';
+
 
 void main() {
-  runApp(Home());
+  runApp(Principal());
 }
 
 
-class Home extends StatelessWidget {
+class Principal extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -24,19 +22,19 @@ class Home extends StatelessWidget {
       theme: ThemeData(
         brightness: Brightness.dark,
       ),
-      home: HomeScreen(),
+      home: PrincipalScreen(),
     );
   }
 }
 
 
-class HomeScreen extends StatefulWidget {
+class PrincipalScreen extends StatefulWidget {
   @override
-  _HomeScreenState createState() => _HomeScreenState();
+  _PrincipalScreenState createState() => _PrincipalScreenState();
 }
 
 
-class _HomeScreenState extends State<HomeScreen> {
+class _PrincipalScreenState extends State<PrincipalScreen> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   String? _selectedValue;
   bool _isDropdownOpened = false;
@@ -52,11 +50,10 @@ class _HomeScreenState extends State<HomeScreen> {
   int currentPageIndex = 0;
  
   final List<Widget> pages = [
-    PrincipalPage(),
+    const PrincipalPage(),
     Pesquisa(),
     Historico(),
     Voce(),
-
   ];
 
 
@@ -67,36 +64,71 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      
-      key: _scaffoldKey,
-     
-
-
-      // Exibe a página atual
-      body: pages[currentPageIndex],
-
-
-      // NavBar Componentizado
-      bottomNavigationBar: NavBar(
-        currentIndex: currentPageIndex,
-        onItemSelected: (index) {
-          _onItemTapped(index); // Trata a navegação baseada no índice selecionado
+ @override
+Widget build(BuildContext context) {
+  return Scaffold(
+    key: _scaffoldKey,
+    appBar: AppBar(
+      title: Text('Título do App'),
+      elevation: 0,
+      leading: IconButton(
+        icon: Icon(Icons.menu),
+        onPressed: () {
+          _scaffoldKey.currentState?.openDrawer();
         },
       ),
-
-
-
-    );
-  }
+    ),
+    drawer: Drawer(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: <Widget>[
+          const Spacer(),
+          ListTile(
+            leading: Icon(Icons.person),
+            title: const Text('Conta'),
+            onTap: () {
+              Navigator.pop(context);
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Conta()),
+              );
+            },
+          ),
+          ListTile(
+            leading: const Icon(Icons.video_library),
+            title: const Text('Categorias'),
+            onTap: () {
+              Navigator.pop(context);
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Categorias()),
+              );
+            },
+          ),
+          ListTile(
+            leading: const Icon(Icons.settings),
+            title: const Text('Configurações'),
+            onTap: () {
+              Navigator.pop(context);
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Configuracoes()),
+              );
+            },
+          ),
+        ],
+      ),
+    ),
+    body: pages[currentPageIndex], // Verifique se pages não é vazio
+  );
+}
 }
 
-
 // CARD ESTILO YOUTUBE
-class HomePage extends StatelessWidget {
-  @override
+class PrincipalPage extends StatelessWidget {
+  const PrincipalPage({super.key});
+
+ @override
   Widget build(BuildContext context) {
     return ListView(
       padding: const EdgeInsets.all(8.0),
@@ -208,4 +240,4 @@ class HomePage extends StatelessWidget {
       ),
     );
   }
-}
+  }

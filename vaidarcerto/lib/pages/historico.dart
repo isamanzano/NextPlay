@@ -2,9 +2,11 @@
 
 import 'package:flutter/material.dart';
 
+
 void main() {
   runApp(Historico());
 }
+
 
 class Historico extends StatelessWidget {
   @override
@@ -15,18 +17,31 @@ class Historico extends StatelessWidget {
       theme: ThemeData(
         brightness: Brightness.dark,
       ),
-      home: HistoricoScreen(), 
+      home: HistoricoScreen(),
     );
   }
 }
+
 
 class HistoricoScreen extends StatefulWidget {
   @override
   _HistoricoScreenState createState() => _HistoricoScreenState();
 }
 
+
 class _HistoricoScreenState extends State<HistoricoScreen> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+  String? _selectedValue;
+  bool _isDropdownOpened = false;
+
+
+  void _toggleDropdown() {
+    setState(() {
+      _isDropdownOpened = !_isDropdownOpened;
+    });
+  }
+
+
   int currentPageIndex = 0;
 
   @override
