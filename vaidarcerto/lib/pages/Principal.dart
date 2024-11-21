@@ -5,7 +5,6 @@ import 'package:vaidarcerto/pages/configuracoes.dart';
 import 'package:vaidarcerto/pages/pesquisa.dart';
 import 'package:vaidarcerto/pages/historico.dart';
 import 'package:vaidarcerto/pages/voce.dart';
-import './components/navbar.dart';
 
 
 void main() {

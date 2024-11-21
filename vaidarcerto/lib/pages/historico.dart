@@ -5,9 +5,7 @@ import 'package:vaidarcerto/pages/conta.dart';
 import 'package:vaidarcerto/pages/categorias.dart';
 import 'package:vaidarcerto/pages/configuracoes.dart';
 import 'package:vaidarcerto/pages/pesquisa.dart';
-import 'package:vaidarcerto/pages/historico.dart';
 import 'package:vaidarcerto/pages/voce.dart';
-import './components/navbar.dart';
 
 void main() {
   runApp(Historico());
@@ -70,69 +68,70 @@ class _HistoricoScreenState extends State<HistoricoScreen> {
     return Scaffold(
       key: _scaffoldKey,
 
-       appBar: AppBar(
-        elevation: 0,
-        leading: IconButton(
-          icon: Icon(Icons.menu),
-          onPressed: () {
-            _scaffoldKey.currentState?.openDrawer();
+      //  appBar: AppBar(
+      //   elevation: 0,
+      //   leading: IconButton(
+      //     icon: Icon(Icons.menu),
+      //     onPressed: () {
+      //       _scaffoldKey.currentState?.openDrawer();
             
-          },
-        ),
-      ),
+      //     },
+      //   ),
+      // ),
 
 
-      // DRAWER
-      drawer: Drawer(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: <Widget>[
-            AppBar(
-              elevation: 0,
-              leading: IconButton(
-                icon: Icon(Icons.menu),
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-              ),
-            ),
-            Spacer(),
-            ListTile(
-              leading: Icon(Icons.person),
-              title: Text('Conta'),
-              onTap: () {
-                Navigator.pop(context);
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => Conta()),
-                );
-              },
-            ),
-            ListTile(
-              leading: Icon(Icons.video_library),
-              title: Text('Categorias'),
-              onTap: () {
-                Navigator.pop(context);
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => Categorias()),
-                );
-              },
-            ),
-            ListTile(
-              leading: Icon(Icons.settings),
-              title: Text('Configurações'),
-              onTap: () {
-                Navigator.pop(context);
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => Configuracoes()),
-                );
-              },
-            ),
-          ],
-        ),
-      ),
+      // // DRAWER
+      // drawer: Drawer(
+      //   child: Column(
+      //     mainAxisAlignment: MainAxisAlignment.end,
+      //     children: <Widget>[
+      //       AppBar(
+      //         elevation: 0,
+      //         leading: IconButton(
+      //           icon: Icon(Icons.menu),
+      //           onPressed: () {
+      //             Navigator.pop(context);
+      //           },
+      //         ),
+      //       ),
+      //       Spacer(),
+      //       ListTile(
+      //         leading: Icon(Icons.person),
+      //         title: Text('Conta'),
+      //         onTap: () {
+      //           Navigator.pop(context);
+      //           Navigator.push(
+      //             context,
+      //             MaterialPageRoute(builder: (context) => Conta()),
+      //           );
+      //         },
+      //       ),
+      //       ListTile(
+      //         leading: Icon(Icons.video_library),
+      //         title: Text('Categorias'),
+      //         onTap: () {
+      //           Navigator.pop(context);
+      //           Navigator.push(
+      //             context,
+      //             MaterialPageRoute(builder: (context) => Categorias()),
+      //           );
+      //         },
+      //       ),
+      //       ListTile(
+      //         leading: Icon(Icons.settings),
+      //         title: Text('Configurações'),
+      //         onTap: () {
+      //           Navigator.pop(context);
+      //           Navigator.push(
+      //             context,
+      //             MaterialPageRoute(builder: (context) => Configuracoes()),
+      //           );
+      //         },
+      //       ),
+      //     ],
+      //   ),
+      // ),
+      
       // Exibe a página atual
       body: pages[currentPageIndex],
 
@@ -150,35 +149,27 @@ class HistoricoPage extends StatelessWidget {
       children: [
         buildYouTubeCard(
           context,
-          'VALORANT AO VIVO! - O NOVO JOGO DO MOMENTO?',
-          'assets/valorantaovivo.jpg',
-          'Ei Games',
-          '15 mil de visualizações',
-          'assets/eigames.jpg',
+          'VALORANT RUMO A PRATA!!!! (FloridoGM) (Ao Vivo)',
+          'assets/valoranthistorico.jpg',
+          'TAKES E-SPORTS',
+          '5,4 mil de visualizações',
+          'assets/takehistorico.jfif',
         ),
         buildYouTubeCard(
           context,
-          'TSUNAMI AUTOMÁTICO - Minecraft Em busca da casa automática #308',
-          'assets/tsunamiautomatico.jpg',
-          'Viniccius13',
-          '3,7 mi de visualizações',
-          'assets/viniccius13.jpg',
+          'FUTEBOL AO VIVO 1º Campeonato Brasileiro online de FIFA Soccer 11 Here comes a new challenger!',
+          'assets/fifahistorico.jpg',
+          'DICASF1 CLUBE DE PILOTOS',
+          '30,8 mil de visualizações',
+          'assets/df1historico.jpg',
         ),   
         buildYouTubeCard(
           context,
-          'MANCHESTER CITY X REAL MADRID TRANSMISSÃO AO VIVO DIRETO DO ETIHAD STADIUM - CHAMPIONS LEAGUE 2023',
-          'assets/realmadrid.jpg',
-          'Litoral News',
-          '1 mi de visualizações',
-          'assets/litoralnews.jpg',
-        ),
-        buildYouTubeCard(
-          context,
-          'Farm de Madeira 100% Automática - Minecraft Em busca da casa automática #342',
-          'assets/farmdemadeira.jpg',
-          'Viniccius13',
-          '3,8 mi de visualizações',
-          'assets/viniccius13.jpg',
+          'CS:GO Source 2 Beta AO VIVO - Explorando o NOVO CS2 🔥 + Doando SKINS',
+          'assets/cs2historico.jpg',
+          'DNX - CSGO',
+          '36,9 mil de visualizações',
+          'assets/dnxhistorico.jpg',
         ),
       ],
     );

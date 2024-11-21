@@ -77,6 +77,12 @@ flutter:
     - assets/realxbarça.jpg
     - assets/narede.jpg
     - assets/jovempan.png
+    - assets/valoranthistorico.jpg
+    - assets/takehistorico.jfif
+    - assets/fifahistorico.jpg
+    - assets/df1historico.jpg
+    - assets/cs2historico.jpg
+    - assets/dnxhistorico.jpg
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
