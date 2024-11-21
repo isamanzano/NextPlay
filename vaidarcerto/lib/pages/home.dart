@@ -87,7 +87,7 @@ class _HomeScreenState extends State<HomeScreen> {
         },
       ),
 
-
+      
 
     );
   }
@@ -97,6 +97,8 @@ class _HomeScreenState extends State<HomeScreen> {
 // CARD ESTILO YOUTUBE
 class HomePage extends StatelessWidget {
   @override
+  
+  
   Widget build(BuildContext context) {
     return ListView(
       padding: const EdgeInsets.all(8.0),
