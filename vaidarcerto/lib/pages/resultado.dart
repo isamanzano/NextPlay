@@ -155,37 +155,35 @@ class ResultadoPage extends StatelessWidget {
         ),
         buildYouTubeCard(
           context,
-          'VALORANT AO VIVO! - O NOVO JOGO DO MOMENTO?',
-          'assets/valorantaovivo.jpg',
-          'Ei Games',
-          '15 mil de visualizações',
-          'assets/eigames.jpg',
+          'The Round // Gameplay Preview - VALORANT',
+          'assets/valorant.jpg',
+          'VALORANT',
+          '3,6 mi de visualizações',
+          'assets/valorantcanal.jpg',
         ),
 
-
-        // Novo cartão de perfil entre o terceiro e quarto cartão de estilo YouTube
         buildProfileCard(
           context,
           'COREANO',
           '170 mil seguidores',
-          'assets/profile_image.jpg', // Substitua pelo caminho real da imagem de perfil
+          'assets/coreano.jpg', 
         ),
        
         buildYouTubeCard(
           context,
-          'VALORANT AO VIVO! - O NOVO JOGO DO MOMENTO?',
-          'assets/valorantaovivo.jpg',
-          'Ei Games',
-          '15 mil de visualizações',
-          'assets/eigames.jpg',
+          '🔥LIVE AO VIVO VALORANT 🔥 🔥',
+          'assets/valorant2.jpg',
+          'B13 Game',
+          '203 de visualizações',
+          'assets/b13game.jpg',
         ),
         buildYouTubeCard(
           context,
-          'VALORANT AO VIVO! - O NOVO JOGO DO MOMENTO?',
-          'assets/valorantaovivo.jpg',
-          'Ei Games',
-          '15 mil de visualizações',
-          'assets/eigames.jpg',
+          'VALORANT Gameplay (PC HD) [1080p60FPS]',
+          'assets/valorant1.jpg',
+          'Throneful',
+          '3,39 mi de visualizações',
+          'assets/throneful.jpg',
         ),
       ],
     );
