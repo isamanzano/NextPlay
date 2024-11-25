@@ -56,41 +56,7 @@ dev_dependencies:
 # The following section is specific to Flutter packages.
 flutter:
   assets:
-    - assets/logo.png
-    - assets/twitter_icon.png
-    - assets/google_icon.png
-    - assets/facebook_icon.png
-    - assets/loading.png
-    - assets/viniccius13.jpg
-    - assets/valorantaovivo.jpg
-    - assets/tsunamiautomatico.jpg
-    - assets/realmadrid.jpg
-    - assets/farmdemadeira.jpg
-    - assets/estadiodefutebol.jpg
-    - assets/eigames.jpg
-    - assets/litoralnews.jpg
-    - assets/brasileiraocard.png
-    - assets/cs2card.jpg
-    - assets/fifacard.jpg
-    - assets/laligacard.jpg
-    - assets/minecraftcard.jpg
-    - assets/valorantcard.jpg
-    - assets/realxbarça.jpg
-    - assets/narede.jpg
-    - assets/jovempan.png
-    - assets/valoranthistorico.jpg
-    - assets/takehistorico.jfif
-    - assets/fifahistorico.jpg
-    - assets/df1historico.jpg
-    - assets/cs2historico.jpg
-    - assets/dnxhistorico.jpg
-    - assets/coreano.jpg
-    - assets/valorantcanal.jpg
-    - assets/valorant.jpg
-    - assets/valorant1.jpg
-    - assets/valorant2.jpg
-    - assets/b13game.jpg
-    - assets/throneful.jpg
+    - assets/
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
