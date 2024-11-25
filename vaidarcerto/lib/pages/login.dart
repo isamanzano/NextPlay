@@ -45,6 +45,7 @@ class _LoginScreenState extends State<LoginScreen> {
     }
   }
 
+  //Com o google
   Future<void> _signInWithGoogle() async {
   try {
     final GoogleSignIn googleSignIn = GoogleSignIn();
@@ -259,27 +260,6 @@ class _LoginScreenState extends State<LoginScreen> {
                     },
                     child: CircleAvatar(
                       backgroundImage: AssetImage('assets/google_icon.png'),
-                      backgroundColor: Colors.transparent,
-                      radius: 20,
-                    ),
-                  ),
-
-                  SizedBox(width: 20),
-                  // Ícone do Twitter
-                  GestureDetector(
-                    onTap: () {},
-                    child: CircleAvatar(
-                      backgroundImage: AssetImage('assets/twitter_icon.png'),
-                      backgroundColor: Colors.transparent,
-                      radius: 20,
-                    ),
-                  ),
-                  SizedBox(width: 20),
-                  // Ícone do Facebook
-                  GestureDetector(
-                    onTap: () {},
-                    child: CircleAvatar(
-                      backgroundImage: AssetImage('assets/facebook_icon.png'),
                       backgroundColor: Colors.transparent,
                       radius: 20,
                     ),
