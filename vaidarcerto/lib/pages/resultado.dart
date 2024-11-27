@@ -1,7 +1,6 @@
+//PÁGINA FEITA POR GABRIEL OLIVEIRA
+
 import 'package:flutter/material.dart';
-import 'package:vaidarcerto/pages/conta.dart';
-import 'package:vaidarcerto/pages/categorias.dart';
-import 'package:vaidarcerto/pages/configuracoes.dart';
 import 'package:vaidarcerto/pages/pesquisa.dart';
 import 'package:vaidarcerto/pages/historico.dart';
 import 'package:vaidarcerto/pages/voce.dart';

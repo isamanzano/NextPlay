@@ -7,6 +7,9 @@ import 'package:vaidarcerto/pages/voce.dart';
 import './components/navbar.dart';
 import 'package:vaidarcerto/pages/principal.dart';
 
+
+
+
 void main() {
   runApp(Home());
 }
@@ -161,9 +164,8 @@ class HomePage extends StatelessWidget {
             width: double.infinity,
             fit: BoxFit.cover,
             child: InkWell(
-              onTap: () {
-                // Adicione função para abrir o URL
-              },
+                onTap: () {
+},
             ),
           ),
           Padding(
