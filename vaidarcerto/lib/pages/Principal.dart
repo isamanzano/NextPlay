@@ -1,3 +1,5 @@
+// PÁGINA LIGADA A HOME - ISABELA MANZANO, COM COLABORAÇÃO DE GABRIEL OLIVEIRA E AUXILIO DE THIAGO
+
 import 'package:flutter/material.dart';
 import 'package:vaidarcerto/pages/pesquisa.dart';
 import 'package:vaidarcerto/pages/historico.dart';

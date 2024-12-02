@@ -1,5 +1,7 @@
+// PÁGINA FEITA POR GABRIEL OLIVEIRA
+
 import 'package:flutter/material.dart';
-import 'package:vaidarcerto/pages/resultado.dart'; // Certifique-se de ter importado ResultadoScreen
+import 'package:vaidarcerto/pages/resultado.dart'; 
 
 
 void main() {
