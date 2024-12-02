@@ -129,6 +129,7 @@ class _ResultadoScreenState extends State<ResultadoScreen> {
       //     ],
       //   ),
       // ),
+      
       // Exibe a página atual
       body: pages[currentPageIndex],
 

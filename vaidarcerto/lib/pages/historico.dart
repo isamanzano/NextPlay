@@ -1,8 +1,6 @@
 // PÁGINA FEITO POR GABRIEL OLIVEIRA, COM COLABORAÇÃO DE ISABELA MANZANO
 
 import 'package:flutter/material.dart';
-import 'package:vaidarcerto/pages/conta.dart';
-import 'package:vaidarcerto/pages/categorias.dart';
 import 'package:vaidarcerto/pages/pesquisa.dart';
 import 'package:vaidarcerto/pages/voce.dart';
 
