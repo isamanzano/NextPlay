@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:vaidarcerto/pages/cadastro.dart';
 import 'package:vaidarcerto/pages/conta.dart';
+import 'channel.dart';
+import 'package:vaidarcerto/pages/cadastro.dart';
+import 'package:vaidarcerto/pages/channel.dart';
 import 'package:vaidarcerto/pages/categorias.dart';
 import 'package:vaidarcerto/pages/configuracoes.dart';
 import 'package:vaidarcerto/pages/pesquisa.dart';
@@ -49,7 +51,7 @@ class _HomeScreenState extends State<HomeScreen> {
     HomePage(), 
     Pesquisa(), 
     Historico(),
-    Voce(),    
+    CanalScreen(), 
   ];
 
   @override

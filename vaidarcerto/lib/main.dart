@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:vaidarcerto/pages/conta.dart';
 import 'package:vaidarcerto/pages/home.dart';
 import 'package:vaidarcerto/pages/login.dart';
 import 'package:vaidarcerto/pages/cadastro.dart';
 import 'package:vaidarcerto/pages/splash.dart';
-import 'package:vaidarcerto/pages/conta.dart';
+import 'package:vaidarcerto/pages/channel.dart';
 import 'package:vaidarcerto/pages/categorias.dart';
 import 'package:vaidarcerto/pages/configuracoes.dart';
 import 'package:vaidarcerto/pages/pesquisa.dart';
@@ -44,7 +45,7 @@ class MyApp extends StatelessWidget {
       '/configuracoes': (context) => Configuracoes(),
       '/pesquisa': (context) => Pesquisa(),
       '/historico': (context) => Historico(),
-      '/voce': (context) => Voce(),
+      '/channel': (context) => const CanalScreen(),
      },
     ); 
   }
