@@ -4,12 +4,6 @@ import 'package:vaidarcerto/pages/home.dart';
 import 'package:vaidarcerto/pages/login.dart';
 import 'package:vaidarcerto/pages/cadastro.dart';
 import 'package:vaidarcerto/pages/splash.dart';
-<<<<<<< HEAD
-import 'package:vaidarcerto/pages/channel.dart';
-import 'package:vaidarcerto/pages/categorias.dart';
-import 'package:vaidarcerto/pages/configuracoes.dart';
-=======
->>>>>>> a4bc35cff1f5dfdab37731b41b597cf383c0f9c9
 import 'package:vaidarcerto/pages/pesquisa.dart';
 import 'package:vaidarcerto/pages/historico.dart';
 import 'package:vaidarcerto/pages/voce.dart';
@@ -45,11 +39,7 @@ class MyApp extends StatelessWidget {
       '/home' : (context) => Home(),
       '/pesquisa': (context) => Pesquisa(),
       '/historico': (context) => Historico(),
-<<<<<<< HEAD
-      '/channel': (context) => const CanalScreen(),
-=======
       '/voce': (context) => CanalScreen(),
->>>>>>> a4bc35cff1f5dfdab37731b41b597cf383c0f9c9
      },
     ); 
   }
