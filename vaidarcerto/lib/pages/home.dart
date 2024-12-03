@@ -1,19 +1,28 @@
+// PÁGINA FEITO POR ISABELA MANZANO
+
 import 'package:flutter/material.dart';
+<<<<<<< HEAD
 import 'package:vaidarcerto/pages/conta.dart';
 import 'channel.dart';
 import 'package:vaidarcerto/pages/cadastro.dart';
 import 'package:vaidarcerto/pages/channel.dart';
 import 'package:vaidarcerto/pages/categorias.dart';
 import 'package:vaidarcerto/pages/configuracoes.dart';
+=======
+>>>>>>> a4bc35cff1f5dfdab37731b41b597cf383c0f9c9
 import 'package:vaidarcerto/pages/pesquisa.dart';
 import 'package:vaidarcerto/pages/historico.dart';
 import 'package:vaidarcerto/pages/voce.dart';
-import 'package:vaidarcerto/shared/style.dart';
 import './components/navbar.dart';
+import 'package:vaidarcerto/pages/principal.dart';
+
+
+
 
 void main() {
   runApp(Home());
 }
+
 
 class Home extends StatelessWidget {
   @override
@@ -29,15 +38,18 @@ class Home extends StatelessWidget {
   }
 }
 
+
 class HomeScreen extends StatefulWidget {
   @override
   _HomeScreenState createState() => _HomeScreenState();
 }
 
+
 class _HomeScreenState extends State<HomeScreen> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   String? _selectedValue;
   bool _isDropdownOpened = false;
+
 
   void _toggleDropdown() {
     setState(() {
@@ -45,95 +57,61 @@ class _HomeScreenState extends State<HomeScreen> {
     });
   }
 
-  int currentPageIndex = 0;
 
+  int currentPageIndex = 0;
+ 
   final List<Widget> pages = [
-    HomePage(), 
-    Pesquisa(), 
+    const PrincipalPage(),
+    Pesquisa(),
     Historico(),
+<<<<<<< HEAD
     CanalScreen(), 
+=======
+    const CanalScreen(),
+
+>>>>>>> a4bc35cff1f5dfdab37731b41b597cf383c0f9c9
   ];
+
+
+  void _onItemTapped(int index) {
+    setState(() {
+      currentPageIndex = index;
+    });
+  }
+
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      
       key: _scaffoldKey,
-      appBar: AppBar(
-        elevation: 0,
-        leading: IconButton(
-          icon: Icon(Icons.menu),
-          onPressed: () {
-            _scaffoldKey.currentState?.openDrawer();
-          },
-        ),
-      ),
+     
 
-      //DRAWER
-      drawer: Drawer(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: <Widget>[
-            AppBar(
-              elevation: 0,
-              leading: IconButton(
-                icon: Icon(Icons.menu),
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-              ),
-            ),
-            Spacer(),
-            ListTile(
-              leading: Icon(Icons.person),
-              title: Text('Conta'),
-              onTap: () {
-                Navigator.pop(context);
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => Conta()));
-              },
-            ),
-            ListTile(
-              leading: Icon(Icons.video_library),
-              title: Text('Categorias'),
-              onTap: () {
-                Navigator.pop(context);
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => Categorias()));
-              },
-            ),
-            ListTile(
-              leading: Icon(Icons.settings),
-              title: Text('Configurações'),
-              onTap: () {
-                Navigator.pop(context);
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => Configuracoes()));
-              },
-            ),
-          ],
-        ),
-      ),
+
+      // Exibe a página atual
       body: pages[currentPageIndex],
 
-      // NavBar componentizado
+
+      // NavBar Componentizado
       bottomNavigationBar: NavBar(
         currentIndex: currentPageIndex,
-        onItemSelected: (int index) {
-          setState(() {
-            currentPageIndex = index;
-          });
+        onItemSelected: (index) {
+          _onItemTapped(index); // Trata a navegação baseada no índice selecionado
         },
       ),
+
+      
+
     );
   }
 }
 
+
 // CARD ESTILO YOUTUBE
 class HomePage extends StatelessWidget {
   @override
+  
+  
   Widget build(BuildContext context) {
     return ListView(
       padding: const EdgeInsets.all(8.0),
@@ -144,7 +122,7 @@ class HomePage extends StatelessWidget {
           'assets/tsunamiautomatico.jpg',
           'Viniccius13',
           '3,7 mi de visualizações',
-          'assets/viniccius13.jpg', 
+          'assets/viniccius13.jpg',
         ),
         buildYouTubeCard(
           context,
@@ -152,7 +130,7 @@ class HomePage extends StatelessWidget {
           'assets/valorantaovivo.jpg',
           'Ei Games',
           '15 mil de visualizações',
-          'assets/eigames.jpg', 
+          'assets/eigames.jpg',
         ),
         buildYouTubeCard(
           context,
@@ -160,7 +138,7 @@ class HomePage extends StatelessWidget {
           'assets/realmadrid.jpg',
           'Litoral News',
           '1 mi de visualizações',
-          'assets/litoralnews.jpg', 
+          'assets/litoralnews.jpg',
         ),
         buildYouTubeCard(
           context,
@@ -168,11 +146,12 @@ class HomePage extends StatelessWidget {
           'assets/farmdemadeira.jpg',
           'Viniccius13',
           '3,8 mi de visualizações',
-          'assets/viniccius13.jpg', 
+          'assets/viniccius13.jpg',
         ),
       ],
     );
   }
+
 
   // CONTINUAÇÃO CARD ESTILO YOUTUBE
   Widget buildYouTubeCard(
@@ -181,7 +160,7 @@ class HomePage extends StatelessWidget {
     String imageUrl,
     String channelName,
     String videoInfo,
-    String avatarImageUrl, 
+    String avatarImageUrl,
   ) {
     return Card(
       elevation: 5,
@@ -193,14 +172,13 @@ class HomePage extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Ink.image(
-            image: AssetImage(imageUrl), 
+            image: AssetImage(imageUrl),
             height: 200,
             width: double.infinity,
             fit: BoxFit.cover,
             child: InkWell(
-              onTap: () {
-                // Adicione função para abrir o URL 
-              },
+                onTap: () {
+},
             ),
           ),
           Padding(
@@ -209,7 +187,7 @@ class HomePage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 CircleAvatar(
-                  backgroundImage: AssetImage(avatarImageUrl), 
+                  backgroundImage: AssetImage(avatarImageUrl),
                   radius: 20,
                 ),
                 const SizedBox(width: 10),

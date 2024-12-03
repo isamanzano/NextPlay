@@ -1,3 +1,5 @@
+// PÁGINA FEITO POR ISABELA MANZANO, COM COLABORAÇÃO DE MATHEUS RODOLPHO
+
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:vaidarcerto/pages/login.dart';

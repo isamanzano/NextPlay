@@ -1,15 +1,17 @@
-// PÁGINA FEITO POR GABRIEL OLIVEIRA, COM COLABORAÇÃO DE ISABELA MANZANO
+//PÁGINA FEITA POR GABRIEL OLIVEIRA
 
 import 'package:flutter/material.dart';
 import 'package:vaidarcerto/pages/pesquisa.dart';
+import 'package:vaidarcerto/pages/historico.dart';
 import 'package:vaidarcerto/pages/voce.dart';
 
+
 void main() {
-  runApp(Historico());
+  runApp(Resultado());
 }
 
 
-class Historico extends StatelessWidget {
+class Resultado extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -18,19 +20,19 @@ class Historico extends StatelessWidget {
       theme: ThemeData(
         brightness: Brightness.dark,
       ),
-      home: HistoricoScreen(),
+      home: ResultadoScreen(),
     );
   }
 }
 
 
-class HistoricoScreen extends StatefulWidget {
+class ResultadoScreen extends StatefulWidget {
   @override
-  _HistoricoScreenState createState() => _HistoricoScreenState();
+  _ResultadoScreenState createState() => _ResultadoScreenState();
 }
 
 
-class _HistoricoScreenState extends State<HistoricoScreen> {
+class _ResultadoScreenState extends State<ResultadoScreen> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   String? _selectedValue;
   bool _isDropdownOpened = false;
@@ -46,7 +48,7 @@ class _HistoricoScreenState extends State<HistoricoScreen> {
   int currentPageIndex = 0;
  
   final List<Widget> pages = [
-    HistoricoPage(),
+    ResultadoPage(),
     Pesquisa(),
     Historico(),
     CanalScreen(),
@@ -71,7 +73,6 @@ class _HistoricoScreenState extends State<HistoricoScreen> {
       //     icon: Icon(Icons.menu),
       //     onPressed: () {
       //       _scaffoldKey.currentState?.openDrawer();
-            
       //     },
       //   ),
       // ),
@@ -138,7 +139,7 @@ class _HistoricoScreenState extends State<HistoricoScreen> {
 
 
 // CARD ESTILO YOUTUBE
-class HistoricoPage extends StatelessWidget {
+class ResultadoPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView(
@@ -146,27 +147,43 @@ class HistoricoPage extends StatelessWidget {
       children: [
         buildYouTubeCard(
           context,
-          'VALORANT RUMO A PRATA!!!! (FloridoGM) (Ao Vivo)',
-          'assets/valoranthistorico.jpg',
-          'TAKES E-SPORTS',
-          '5,4 mil de visualizações',
-          'assets/takehistorico.jfif',
+          'VALORANT AO VIVO! - O NOVO JOGO DO MOMENTO?',
+          'assets/valorantaovivo.jpg',
+          'Ei Games',
+          '15 mil de visualizações',
+          'assets/eigames.jpg',
         ),
         buildYouTubeCard(
           context,
-          'FUTEBOL AO VIVO 1º Campeonato Brasileiro online de FIFA Soccer 11 Here comes a new challenger!',
-          'assets/fifahistorico.jpg',
-          'DICASF1 CLUBE DE PILOTOS',
-          '30,8 mil de visualizações',
-          'assets/df1historico.jpg',
-        ),   
+          'The Round // Gameplay Preview - VALORANT',
+          'assets/valorant.jpg',
+          'VALORANT',
+          '3,6 mi de visualizações',
+          'assets/valorantcanal.jpg',
+        ),
+
+        buildProfileCard(
+          context,
+          'COREANO',
+          '170 mil seguidores',
+          'assets/coreano.jpg', 
+        ),
+       
         buildYouTubeCard(
           context,
-          'CS:GO Source 2 Beta AO VIVO - Explorando o NOVO CS2 🔥 + Doando SKINS',
-          'assets/cs2historico.jpg',
-          'DNX - CSGO',
-          '36,9 mil de visualizações',
-          'assets/dnxhistorico.jpg',
+          '🔥LIVE AO VIVO VALORANT 🔥 🔥',
+          'assets/valorant2.jpg',
+          'B13 Game',
+          '203 de visualizações',
+          'assets/b13game.jpg',
+        ),
+        buildYouTubeCard(
+          context,
+          'VALORANT Gameplay (PC HD) [1080p60FPS]',
+          'assets/valorant1.jpg',
+          'Throneful',
+          '3,39 mi de visualizações',
+          'assets/throneful.jpg',
         ),
       ],
     );
