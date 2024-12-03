@@ -31,7 +31,7 @@ class _CadastroScreenState extends State<CadastroScreen> {
         );
 
         // Tenta atualizar o nome do usuário
-        await userCredential.user!.updateDisplayName(_usernameController.text.trim());
+        await userCredential.user?.updateDisplayName(_usernameController.text.trim());
         await userCredential.user!.reload();
         _auth.currentUser; // Recarrega o usuário atualizado
 

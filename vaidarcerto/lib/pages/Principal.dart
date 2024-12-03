@@ -51,7 +51,7 @@ class _PrincipalScreenState extends State<PrincipalScreen> {
     const PrincipalPage(),
     Pesquisa(),
     Historico(),
-    Voce(),
+    CanalScreen(),
   ];
 
 

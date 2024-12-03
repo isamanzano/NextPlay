@@ -52,10 +52,10 @@ class _HomeScreenState extends State<HomeScreen> {
   int currentPageIndex = 0;
  
   final List<Widget> pages = [
-    PrincipalPage(),
+    const PrincipalPage(),
     Pesquisa(),
     Historico(),
-    Voce(),
+    const CanalScreen(),
 
   ];
 

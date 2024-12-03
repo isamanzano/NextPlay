@@ -38,7 +38,7 @@ class MyApp extends StatelessWidget {
       '/home' : (context) => Home(),
       '/pesquisa': (context) => Pesquisa(),
       '/historico': (context) => Historico(),
-      '/voce': (context) => Voce(),
+      '/voce': (context) => CanalScreen(),
      },
     ); 
   }

@@ -51,7 +51,7 @@ class _ResultadoScreenState extends State<ResultadoScreen> {
     ResultadoPage(),
     Pesquisa(),
     Historico(),
-    Voce(),
+    CanalScreen(),
   ];
 
 

@@ -66,6 +66,7 @@ class _LoginScreenState extends State<LoginScreen> {
     // Realiza o login com o Firebase
     await _auth.signInWithCredential(credential);
 
+    
     // Navega para a página inicial após o login bem-sucedido
     Navigator.pushReplacement(
       context,

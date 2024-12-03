@@ -49,7 +49,7 @@ class _HistoricoScreenState extends State<HistoricoScreen> {
     HistoricoPage(),
     Pesquisa(),
     Historico(),
-    Voce(),
+    CanalScreen(),
   ];
 
 
