@@ -66,57 +66,7 @@ class _PrincipalScreenState extends State<PrincipalScreen> {
 Widget build(BuildContext context) {
   return Scaffold(
     key: _scaffoldKey,
-    appBar: AppBar(
-      title: Text('Título do App'),
-      elevation: 0,
-      leading: IconButton(
-        icon: Icon(Icons.menu),
-        onPressed: () {
-          _scaffoldKey.currentState?.openDrawer();
-        },
-      ),
-    ),
-    // drawer: Drawer(
-    //   child: Column(
-    //     mainAxisAlignment: MainAxisAlignment.end,
-    //     children: <Widget>[
-    //       const Spacer(),
-    //       ListTile(
-    //         leading: Icon(Icons.person),
-    //         title: const Text('Conta'),
-    //         onTap: () {
-    //           Navigator.pop(context);
-    //           Navigator.push(
-    //             context,
-    //             MaterialPageRoute(builder: (context) => Conta()),
-    //           );
-    //         },
-    //       ),
-    //       ListTile(
-    //         leading: const Icon(Icons.video_library),
-    //         title: const Text('Categorias'),
-    //         onTap: () {
-    //           Navigator.pop(context);
-    //           Navigator.push(
-    //             context,
-    //             MaterialPageRoute(builder: (context) => Categorias()),
-    //           );
-    //         },
-    //       ),
-    //       ListTile(
-    //         leading: const Icon(Icons.settings),
-    //         title: const Text('Configurações'),
-    //         onTap: () {
-    //           Navigator.pop(context);
-    //           Navigator.push(
-    //             context,
-    //             MaterialPageRoute(builder: (context) => Configuracoes()),
-    //           );
-    //         },
-    //       ),
-    //     ],
-    //   ),
-    // ),
+    
     body: pages[currentPageIndex], // Verifique se pages não é vazio
   );
 }
