@@ -8,7 +8,6 @@ class CanalScreen extends StatefulWidget {
   @override
   _CanalScreenState createState() => _CanalScreenState();
 }
-
 class _CanalScreenState extends State<CanalScreen> {
   int _selectedTab = 0;
   User? _user;
@@ -28,7 +27,6 @@ class _CanalScreenState extends State<CanalScreen> {
       MaterialPageRoute(builder: (context) => const LoginScreen()),
     );
   }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
