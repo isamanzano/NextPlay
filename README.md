@@ -24,7 +24,4 @@ NextPlay é um aplicativo desenvolvido em Flutter com o objetivo de ser o ponto 
 
 ## 🛠 Desenvolvedores:
 
-Enzo Bussi
-Gabriel Oliveira
-Isabela Manzano
-Matheus Rodolpho
+Enzo Bussi, Gabriel Oliveira, Isabela Manzano e Matheus Rodolpho
