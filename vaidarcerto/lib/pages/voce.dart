@@ -1,3 +1,5 @@
+// PÁGINA FEITA POR MATHEUS RODOLPHO
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:vaidarcerto/pages/login.dart';
@@ -32,21 +34,7 @@ class _CanalScreenState extends State<CanalScreen> {
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(
-        leading: IconButton(
-          icon: const Icon(Icons.chevron_left), // Back arrow icon
-          color: Colors.blue, // Icon color
-          onPressed: () {
-            Navigator.pop(context); // Action to go back
-          },
-        ),
-        title: const Text(
-          'Voltar',
-          style: TextStyle(
-            color: Colors.blue, // Title text color
-            fontWeight: FontWeight.bold, // Title font weight
-            fontSize: 24, // Title font size
-          ),
-        ),
+        
         backgroundColor: Colors.black,
         actions: [
           IconButton(
