@@ -15,7 +15,7 @@ NextPlay é um aplicativo desenvolvido em Flutter com o objetivo de ser o ponto 
 
 ## 🚀 Instruções de Execução:
 
-1. Clone o repositório: git clone https://github.com/seu-usuario/nextplay.git
+1. Clone o repositório: git clone https://github.com/isamanzano/nextplay.git
 2. Vá para o diretório do repositório: cd vaidarcerto
 3. Instalar as dependências: flutter pub get
 4. Configurar um dispositivo para testes: flutter devices
