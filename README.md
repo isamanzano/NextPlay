@@ -6,13 +6,21 @@ NextPlay é um aplicativo desenvolvido em Flutter com o objetivo de ser o ponto 
 
 ## ✅ Requisitos:
 
-- 
+- Flutter sdk
+- firebase_core: ^3.6.0
+- firebase_auth: ^5.3.1
+- google_sign_in: ^6.2.2
 
 ---
 
 ## 🚀 Instruções de Execução:
 
-1. 
+1. Clone o repositório: git clone https://github.com/seu-usuario/nextplay.git
+2. Vá para o diretório do repositório: cd vaidarcerto
+3. Instalar as dependências: flutter pub get
+4. Configurar um dispositivo para testes: flutter devices
+5. Executar o app: flutter run
+6. Caso ocorra algum erro: flutter doctor
 
 ---
 
