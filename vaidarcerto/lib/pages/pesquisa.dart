@@ -68,7 +68,7 @@ class _PesquisaScreenState extends State<PesquisaScreen> {
     if (searchResult.toLowerCase() == 'valorant') {
      Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => ResultadoScreen()),
+        MaterialPageRoute(builder: (context) => ResultadoPage()),
       );
     } else {
       Navigator.pushReplacement(
@@ -185,12 +185,12 @@ class DetailScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(item),
+        
       ),
       body: Center(
         child: Text(
-          'Detalhes para "$item"',
-          style: TextStyle(fontSize: 24),
+          'Não foi possivel encontrar "$item"',
+          style: TextStyle(fontSize: 20,),
         ),
       ),
     );

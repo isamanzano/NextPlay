@@ -55,7 +55,7 @@ class _HomeScreenState extends State<HomeScreen> {
     const PrincipalPage(),
     Pesquisa(),
     Historico(),
-    const CanalScreen(),
+    const VoceScreen(),
 
   ];
 

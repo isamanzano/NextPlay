@@ -4,13 +4,13 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:vaidarcerto/pages/login.dart';
 
-class CanalScreen extends StatefulWidget {
-  const CanalScreen({super.key});
+class VoceScreen extends StatefulWidget {
+  const VoceScreen({super.key});
 
   @override
-  _CanalScreenState createState() => _CanalScreenState();
+  _VoceScreenState createState() => _VoceScreenState();
 }
-class _CanalScreenState extends State<CanalScreen> {
+class _VoceScreenState extends State<VoceScreen> {
   int _selectedTab = 0;
   User? _user;
 
