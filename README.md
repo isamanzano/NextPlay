@@ -27,6 +27,8 @@ NextPlay é um aplicativo desenvolvido em Flutter com o objetivo de ser o ponto 
 ## 📂 Estrutura de Arquivos:
 
 - main.dart: Arquivo principal do aplicativo.
+- navbar.dart: Barra de navegação entre páginas componentizada, é encontrada na pasta "components".
+- cards_data.dart: Arquivo responsável por armazenar os dados dos cards exibidos no aplicativo, é encontrado na pasta "data".
 - cadastro.dart: Tela de cadastro do aplicativo.
 - login.dart: Tela de login para autenticação dos usuários já cadastrados
 - Principal.dart: Tela que centraliza a navegação do aplicativo, conectando as páginas principais.
@@ -35,6 +37,7 @@ NextPlay é um aplicativo desenvolvido em Flutter com o objetivo de ser o ponto 
 - resultado.dart: Tela que exibe os resultados das buscas realizadas na tela de pesquisa.
 - historico.dart: Tela que apresenta o histórico de conteúdos acessados pelo usuário.
 - voce.dart: Tela que exibe informações de perfil e configurações pessoais do usuário.
+- Canal.dart: Tela de canal de um usuário.
 
 ---
 
