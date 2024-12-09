@@ -38,6 +38,8 @@ NextPlay é um aplicativo desenvolvido em Flutter com o objetivo de ser o ponto 
 - historico.dart: Tela que apresenta o histórico de conteúdos acessados pelo usuário.
 - voce.dart: Tela que exibe informações de perfil e configurações pessoais do usuário.
 - Canal.dart: Tela de canal de um usuário.
+- channel.dart:
+- profile.dart:
 
 ---
 
