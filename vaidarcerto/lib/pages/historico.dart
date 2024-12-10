@@ -3,6 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:vaidarcerto/pages/pesquisa.dart';
 import 'package:vaidarcerto/pages/voce.dart';
+import 'package:vaidarcerto/pages/videoSelecionado.dart';
+import 'package:vaidarcerto/pages/data/cards_data.dart';
 
 void main() {
   runApp(Historico());
@@ -77,91 +79,37 @@ class _HistoricoScreenState extends State<HistoricoScreen> {
 class HistoricoPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    // Lista de títulos específicos
+    final List<String> selectedTitles = [
+      'VALORANT RUMO A PRATA!!!! (FloridoGM) (Ao Vivo)',
+      'FUTEBOL AO VIVO 1º Campeonato Brasileiro online de FIFA Soccer 11 Here comes a new challenger!',
+      'MANCHESTER CITY X REAL MADRID TRANSMISSÃO AO VIVO DIRETO DO ETIHAD STADIUM - CHAMPIONS LEAGUE 2023',
+      'CS:GO Source 2 Beta AO VIVO - Explorando o NOVO CS2 🔥 + Doando SKINS',
+      
+    ];
+
+    // Filtrando os itens que correspondem aos títulos
+    final filteredCards = cardsData.where((card) {
+      return selectedTitles.contains(card.title);
+    }).toList();
+
     return ListView(
       padding: const EdgeInsets.all(8.0),
       children: [
-        buildYouTubeCard(
-          context,
-          'VALORANT RUMO A PRATA!!!! (FloridoGM) (Ao Vivo)',
-          'assets/valoranthistorico.jpg',
-          'TAKES E-SPORTS',
-          '5,4 mil de visualizações',
-          'assets/takehistorico.jfif',
-        ),
-        buildYouTubeCard(
-          context,
-          'FUTEBOL AO VIVO 1º Campeonato Brasileiro online de FIFA Soccer 11 Here comes a new challenger!',
-          'assets/fifahistorico.jpg',
-          'DICASF1 CLUBE DE PILOTOS',
-          '30,8 mil de visualizações',
-          'assets/df1historico.jpg',
-        ),   
-        buildYouTubeCard(
-          context,
-          'CS:GO Source 2 Beta AO VIVO - Explorando o NOVO CS2 🔥 + Doando SKINS',
-          'assets/cs2historico.jpg',
-          'DNX - CSGO',
-          '36,9 mil de visualizações',
-          'assets/dnxhistorico.jpg',
-        ),
+        // Renderizando os cartões filtrados
+        ...filteredCards.map((data) => buildYouTubeCard(
+              context,
+              data.title,
+              data.imageUrl,
+              data.channelName,
+              data.views,
+              data.avatarImageUrl,
+              data.videoCode,
+            )),
       ],
     );
   }
 
-
-  // Função para construir o cartão de perfil
-  Widget buildProfileCard(BuildContext context, String name, String followers, String profileImageUrl) {
-    return Card(
-      elevation: 5,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(10),
-      ),
-      margin: const EdgeInsets.symmetric(vertical: 10),
-      child: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          children: [
-            CircleAvatar(
-              radius: 40,
-              backgroundImage: AssetImage(profileImageUrl),
-            ),
-            const SizedBox(height: 10),
-            Text(
-              name,
-              style: const TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            const SizedBox(height: 5),
-            Text(
-              followers,
-              style: const TextStyle(
-                fontSize: 16,
-                color: Colors.grey,
-              ),
-            ),
-            const SizedBox(height: 10),
-            ElevatedButton(
-              onPressed: () {
-                // Adicione ação do botão de seguir aqui
-              },
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.blue,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(30),
-                ),
-              ),
-              child: const Text('Seguir'),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-
-
-  // Função para construir o cartão de estilo YouTube
   Widget buildYouTubeCard(
     BuildContext context,
     String title,
@@ -169,12 +117,11 @@ class HistoricoPage extends StatelessWidget {
     String channelName,
     String videoInfo,
     String avatarImageUrl,
+    String videoCode,
   ) {
     return Card(
       elevation: 5,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(10),
-      ),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
       margin: const EdgeInsets.symmetric(vertical: 10),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -186,7 +133,18 @@ class HistoricoPage extends StatelessWidget {
             fit: BoxFit.cover,
             child: InkWell(
               onTap: () {
-                // Adicione função para abrir o URL
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ItemSelecionado(
+                      videoTitle: title,
+                      channelName: channelName,
+                      videoCode: videoCode,
+                      avatarImage: avatarImageUrl,
+                      videoInfo: videoInfo,
+                    ),
+                  ),
+                );
               },
             ),
           ),
@@ -207,19 +165,15 @@ class HistoricoPage extends StatelessWidget {
                       Text(
                         title,
                         style: const TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                        ),
+                            fontSize: 16, fontWeight: FontWeight.bold),
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
                       ),
                       const SizedBox(height: 5),
                       Text(
                         '$channelName • $videoInfo',
-                        style: const TextStyle(
-                          fontSize: 14,
-                          color: Colors.grey,
-                        ),
+                        style:
+                            const TextStyle(fontSize: 14, color: Colors.grey),
                       ),
                     ],
                   ),

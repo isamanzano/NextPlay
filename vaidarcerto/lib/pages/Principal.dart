@@ -4,6 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:vaidarcerto/pages/pesquisa.dart';
 import 'package:vaidarcerto/pages/historico.dart';
 import 'package:vaidarcerto/pages/voce.dart';
+import 'package:vaidarcerto/pages/principal.dart';
+import 'package:vaidarcerto/pages/Canal.dart';
+import 'package:vaidarcerto/pages/videoSelecionado.dart';
+import 'package:vaidarcerto/pages/data/cards_data.dart';
+import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 
 void main() {
@@ -34,15 +39,7 @@ class PrincipalScreen extends StatefulWidget {
 
 class _PrincipalScreenState extends State<PrincipalScreen> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
-  String? _selectedValue;
-  bool _isDropdownOpened = false;
 
-
-  void _toggleDropdown() {
-    setState(() {
-      _isDropdownOpened = !_isDropdownOpened;
-    });
-  }
 
 
   int currentPageIndex = 0;
@@ -76,49 +73,38 @@ Widget build(BuildContext context) {
 class PrincipalPage extends StatelessWidget {
   const PrincipalPage({super.key});
 
- @override
+  @override
   Widget build(BuildContext context) {
+    // Lista de títulos específicos
+    final List<String> selectedTitles = [
+      'TSUNAMI AUTOMÁTICO - Minecraft Em busca da casa automática #308',
+      'VALORANT AO VIVO! - O NOVO JOGO DO MOMENTO?',
+      'MANCHESTER CITY X REAL MADRID TRANSMISSÃO AO VIVO DIRETO DO ETIHAD STADIUM - CHAMPIONS LEAGUE 2023',
+      'Farm de Madeira 100% Automática - Minecraft Em busca da casa automática #342'
+    ];
+
+    // Filtrando os itens que correspondem aos títulos
+    final filteredCards = cardsData.where((card) {
+      return selectedTitles.contains(card.title);
+    }).toList();
+
     return ListView(
       padding: const EdgeInsets.all(8.0),
       children: [
-        buildYouTubeCard(
-          context,
-          'TSUNAMI AUTOMÁTICO - Minecraft Em busca da casa automática #308',
-          'assets/tsunamiautomatico.jpg',
-          'Viniccius13',
-          '3,7 mi de visualizações',
-          'assets/viniccius13.jpg',
-        ),
-        buildYouTubeCard(
-          context,
-          'VALORANT AO VIVO! - O NOVO JOGO DO MOMENTO?',
-          'assets/valorantaovivo.jpg',
-          'Ei Games',
-          '15 mil de visualizações',
-          'assets/eigames.jpg',
-        ),
-        buildYouTubeCard(
-          context,
-          'MANCHESTER CITY X REAL MADRID TRANSMISSÃO AO VIVO DIRETO DO ETIHAD STADIUM - CHAMPIONS LEAGUE 2023',
-          'assets/realmadrid.jpg',
-          'Litoral News',
-          '1 mi de visualizações',
-          'assets/litoralnews.jpg',
-        ),
-        buildYouTubeCard(
-          context,
-          'Farm de Madeira 100% Automática - Minecraft Em busca da casa automática #342',
-          'assets/farmdemadeira.jpg',
-          'Viniccius13',
-          '3,8 mi de visualizações',
-          'assets/viniccius13.jpg',
-        ),
+        // Renderizando os cartões filtrados
+        ...filteredCards.map((data) => buildYouTubeCard(
+              context,
+              data.title,
+              data.imageUrl,
+              data.channelName,
+              data.views,
+              data.avatarImageUrl,
+              data.videoCode,
+            )),
       ],
     );
   }
 
-
-  // CONTINUAÇÃO CARD ESTILO YOUTUBE
   Widget buildYouTubeCard(
     BuildContext context,
     String title,
@@ -126,12 +112,11 @@ class PrincipalPage extends StatelessWidget {
     String channelName,
     String videoInfo,
     String avatarImageUrl,
+    String videoCode,
   ) {
     return Card(
       elevation: 5,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(10),
-      ),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
       margin: const EdgeInsets.symmetric(vertical: 10),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -143,7 +128,18 @@ class PrincipalPage extends StatelessWidget {
             fit: BoxFit.cover,
             child: InkWell(
               onTap: () {
-                // Adicione função para abrir o URL
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ItemSelecionado(
+                      videoTitle: title,
+                      channelName: channelName,
+                      videoCode: videoCode,
+                      avatarImage: avatarImageUrl,
+                      videoInfo: videoInfo,
+                    ),
+                  ),
+                );
               },
             ),
           ),
@@ -164,19 +160,15 @@ class PrincipalPage extends StatelessWidget {
                       Text(
                         title,
                         style: const TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                        ),
+                            fontSize: 16, fontWeight: FontWeight.bold),
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
                       ),
                       const SizedBox(height: 5),
                       Text(
                         '$channelName • $videoInfo',
-                        style: const TextStyle(
-                          fontSize: 14,
-                          color: Colors.grey,
-                        ),
+                        style:
+                            const TextStyle(fontSize: 14, color: Colors.grey),
                       ),
                     ],
                   ),
@@ -188,4 +180,4 @@ class PrincipalPage extends StatelessWidget {
       ),
     );
   }
-  }
+}
