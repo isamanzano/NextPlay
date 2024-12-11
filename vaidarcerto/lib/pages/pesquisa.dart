@@ -3,11 +3,9 @@
 import 'package:flutter/material.dart';
 import 'package:vaidarcerto/pages/resultado.dart'; 
 
-
 void main() {
   runApp(Pesquisa());
 }
-
 
 class Pesquisa extends StatelessWidget {
   @override
@@ -23,25 +21,18 @@ class Pesquisa extends StatelessWidget {
   }
 }
 
-
 class PesquisaScreen extends StatefulWidget {
   @override
   _PesquisaScreenState createState() => _PesquisaScreenState();
 }
 
-
 class _PesquisaScreenState extends State<PesquisaScreen> {
   final List<String> searchHistory = [
-    "Valorant",
-    "Jogo Real Madrid ao vivo",
-    "Fallen",
-    "Jogo Corinthians ao vivo"
-  ];
 
+  ];
 
   TextEditingController _controller = TextEditingController();
   String query = '';
-
 
   void _onSearchChanged(String value) {
     setState(() {
@@ -49,13 +40,11 @@ class _PesquisaScreenState extends State<PesquisaScreen> {
     });
   }
 
-
   List<String> _getSearchResults() {
     return searchHistory
         .where((item) => item.toLowerCase().contains(query.toLowerCase()))
         .toList();
   }
-
 
   @override
   void dispose() {
@@ -63,22 +52,20 @@ class _PesquisaScreenState extends State<PesquisaScreen> {
     super.dispose();
   }
 
-
   void _navigateToDetail(String searchResult) {
-    if (searchResult.toLowerCase() == 'valorant') {
-     Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (context) => ResultadoPage()),
-      );
-    } else {
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (context) => DetailScreen(item: searchResult)),
-      );
+    if (!searchHistory.contains(searchResult)) {
+      setState(() {
+        searchHistory.insert(0, searchResult); // Adiciona ao histórico
+      });
     }
+
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => ResultadoPage(termoPesquisado: searchResult),
+      ),
+    );
   }
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -86,7 +73,6 @@ class _PesquisaScreenState extends State<PesquisaScreen> {
       backgroundColor: Colors.black,
       appBar: AppBar(
         backgroundColor: Colors.black,
-        
         title: Row(
           children: [
             Expanded(
@@ -122,7 +108,9 @@ class _PesquisaScreenState extends State<PesquisaScreen> {
                   setState(() {
                     query = _controller.text;
                   });
-                  _navigateToDetail(query); // Verifica o termo e abre a tela correspondente
+                  if (query.isNotEmpty) {
+                    _navigateToDetail(query);
+                  }
                 },
               ),
             ),
@@ -148,7 +136,7 @@ class _PesquisaScreenState extends State<PesquisaScreen> {
                               query = suggestion;
                               _controller.text = suggestion;
                             });
-                            _navigateToDetail(suggestion); // Navega para os detalhes
+                            _navigateToDetail(suggestion);
                           },
                         );
                       },
@@ -160,7 +148,7 @@ class _PesquisaScreenState extends State<PesquisaScreen> {
                         return ListTile(
                           title: Text(result, style: TextStyle(color: Colors.white)),
                           onTap: () {
-                            _navigateToDetail(result); // Navega para os detalhes
+                            _navigateToDetail(result);
                           },
                         );
                       },
@@ -173,26 +161,3 @@ class _PesquisaScreenState extends State<PesquisaScreen> {
   }
 }
 
-
-class DetailScreen extends StatelessWidget {
-  final String item;
-
-
-  DetailScreen({required this.item});
-
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        
-      ),
-      body: Center(
-        child: Text(
-          'Não foi possivel encontrar "$item"',
-          style: TextStyle(fontSize: 20,),
-        ),
-      ),
-    );
-  }
-}

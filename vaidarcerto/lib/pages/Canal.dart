@@ -2,6 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:vaidarcerto/pages/data/cards_data.dart';
+import 'package:vaidarcerto/pages/videoSelecionado.dart';
+
 class CanalScreen extends StatefulWidget {
   final String channelName;
   final String profileImageUrl;
@@ -18,7 +20,6 @@ class CanalScreen extends StatefulWidget {
 
   @override
   _CanalScreenState createState() => _CanalScreenState();
-
 }
 
 class _CanalScreenState extends State<CanalScreen> {
@@ -26,17 +27,13 @@ class _CanalScreenState extends State<CanalScreen> {
 
   @override
   Widget build(BuildContext context) {
-    // Filtrando os cards relacionados ao Valorant
     final valorantCards = widget.profiles.where((profile) {
       return profile.channelName == 'Coreano';
     }).toList();
 
     final liveCards = widget.profiles.where((profile) {
-      return profile.category == 'Valorant_live';
+      return profile.type == 'LIVE';
     }).toList();
-
-    print(widget.profiles.length); // Verifica quantos perfis estão sendo recebidos
-
 
     return Scaffold(
       backgroundColor: Colors.black,
@@ -130,29 +127,32 @@ class _CanalScreenState extends State<CanalScreen> {
     switch (_selectedTab) {
       case 0:
         return ListView(
-          children: valorantCards.map((data) {
-            return buildYouTubeCard(
-              context,
-              data.title,
-              data.imageUrl,
-              data.channelName,
-              data.views,
-              data.avatarImageUrl,
-            );
-          }).toList(),
+          padding: const EdgeInsets.symmetric(vertical: 16),
+          children: [
+            ...valorantCards.map((data) => buildYouTubeCard(
+                  context,
+                  data.title,
+                  data.imageUrl,
+                  data.channelName,
+                  data.views,
+                  data.avatarImageUrl,
+                  data.videoCode,
+                )),
+          ],
         );
+
       case 1:
         return ListView(
-          children: liveCards.map((data) {
-            return buildYouTubeCard(
-              context,
-              data.title,
-              data.imageUrl,
-              data.channelName,
-              data.views,
-              data.avatarImageUrl,
-            );
-          }).toList(),
+          padding: const EdgeInsets.symmetric(vertical: 16),
+          children: liveCards.map((data) => buildYouTubeCard(
+                context,
+                data.title,
+                data.imageUrl,
+                data.channelName,
+                data.views,
+                data.avatarImageUrl,
+                data.videoCode,
+              )).toList(),
         );
       case 2:
         return Center(
@@ -165,31 +165,88 @@ class _CanalScreenState extends State<CanalScreen> {
         return const SizedBox.shrink();
     }
   }
-}
 
-Widget buildYouTubeCard(
+  Widget buildYouTubeCard(
   BuildContext context,
   String title,
   String imageUrl,
   String channelName,
-  String views,
+  String videoInfo,
   String avatarImageUrl,
+  String videoCode,
 ) {
-  return Card(
-    color: Colors.black,
-    child: Column(
-      children: [
-        Image.asset(imageUrl, fit: BoxFit.cover),
-        ListTile(
-          leading: CircleAvatar(
-            backgroundImage: AssetImage(avatarImageUrl),
-          ),
-          title: Text(title, style: const TextStyle(color: Colors.white)),
-          subtitle: Text('$channelName • $views', style: const TextStyle(color: Colors.grey)),
+  return Center( // Para alinhar no centro e limitar a largura
+    child: Card(
+      elevation: 5,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+      margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 16), // Ajuste a margem
+      child: SizedBox(
+        width: 400, // Defina a largura desejada
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Ink.image(
+              image: AssetImage(imageUrl),
+              height: 200,
+              width: double.infinity,
+              fit: BoxFit.cover,
+              child: InkWell(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => ItemSelecionado(
+                        videoTitle: title,
+                        channelName: channelName,
+                        videoCode: videoCode,
+                        avatarImage: avatarImageUrl,
+                        videoInfo: videoInfo,
+                      ),
+                    ),
+                  );
+                },
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  CircleAvatar(
+                    backgroundImage: AssetImage(avatarImageUrl),
+                    radius: 20,
+                  ),
+                  const SizedBox(width: 10),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          title,
+                          style: const TextStyle(
+                              fontSize: 16, fontWeight: FontWeight.bold),
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                        const SizedBox(height: 5),
+                        Text(
+                          '$channelName • $videoInfo',
+                          style: const TextStyle(
+                              fontSize: 14, color: Colors.grey),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
         ),
-      ],
+      ),
     ),
   );
+}
+
 }
 
 class TabButton extends StatelessWidget {
@@ -219,5 +276,3 @@ class TabButton extends StatelessWidget {
     );
   }
 }
-
-

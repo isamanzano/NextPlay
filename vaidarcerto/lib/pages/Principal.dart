@@ -4,11 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:vaidarcerto/pages/pesquisa.dart';
 import 'package:vaidarcerto/pages/historico.dart';
 import 'package:vaidarcerto/pages/voce.dart';
-import 'package:vaidarcerto/pages/principal.dart';
-import 'package:vaidarcerto/pages/Canal.dart';
 import 'package:vaidarcerto/pages/videoSelecionado.dart';
 import 'package:vaidarcerto/pages/data/cards_data.dart';
-import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 
 void main() {
