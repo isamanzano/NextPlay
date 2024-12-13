@@ -1,9 +1,14 @@
+// PÁGINA FEITA POR ISABELA MANZANO
+
 import 'package:flutter/material.dart';
-import 'package:projetostreaming/pages/home.dart';
-import 'package:projetostreaming/pages/login.dart';
-import 'package:projetostreaming/pages/cadastro.dart';
-import 'package:projetostreaming/pages/splash.dart';
-import 'package:projetostreaming/shared/style.dart';
+import 'package:vaidarcerto/pages/home.dart';
+import 'package:vaidarcerto/pages/login.dart';
+import 'package:vaidarcerto/pages/cadastro.dart';
+import 'package:vaidarcerto/pages/splash.dart';
+import 'package:vaidarcerto/pages/pesquisa.dart';
+import 'package:vaidarcerto/pages/historico.dart';
+import 'package:vaidarcerto/pages/voce.dart';
+import 'package:vaidarcerto/shared/style.dart';
 import 'package:firebase_core/firebase_core.dart';
 
 
@@ -33,8 +38,10 @@ class MyApp extends StatelessWidget {
       '/login' : (context) =>  LoginScreen(),
       '/cadastro' : (context) => const CadastroScreen(),
       '/home' : (context) => Home(),
+      '/pesquisa': (context) => Pesquisa(),
+      '/historico': (context) => Historico(),
+      '/voce': (context) =>VoceScreen(),
      },
     ); 
   }
 }
-

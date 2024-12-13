@@ -1,7 +1,9 @@
+// PÁGINA FEITO POR ISABELA MANZANO, COM COLABORAÇÃO DE MATHEUS RODOLPHO
+
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:projetostreaming/pages/login.dart';
-import 'package:projetostreaming/shared/style.dart';
+import 'package:vaidarcerto/pages/login.dart';
+import 'package:vaidarcerto/shared/style.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
