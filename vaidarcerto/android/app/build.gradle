@@ -5,6 +5,7 @@ plugins {
     id 'com.google.gms.google-services' // Google services plugin para Firebase
 }
 
+
 android {
     namespace = "com.example.vaidarcerto"
     compileSdk = flutter.compileSdkVersion

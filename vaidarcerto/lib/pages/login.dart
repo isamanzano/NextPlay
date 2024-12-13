@@ -1,9 +1,12 @@
+// PÁGINA FEITO POR ISABELA MANZANO, COM COLABORAÇÃO DE GABRIEL OLIVEIRA
+
 import 'package:flutter/material.dart';
-import 'package:projetostreaming/pages/cadastro.dart';
-import 'package:projetostreaming/pages/home.dart';
-import 'package:projetostreaming/pages/login.dart';
-import 'package:projetostreaming/shared/style.dart';
+import 'package:vaidarcerto/pages/cadastro.dart';
+import 'package:vaidarcerto/pages/home.dart';
+import 'package:vaidarcerto/shared/style.dart';
 import 'package:firebase_auth/firebase_auth.dart'; 
+import 'package:google_sign_in/google_sign_in.dart';
+
 
 // Define um widget Stateful para a tela de login
 class LoginScreen extends StatefulWidget {
@@ -41,6 +44,38 @@ class _LoginScreenState extends State<LoginScreen> {
       _showSnackBar('Erro no login: $e', Colors.red);
     }
   }
+
+  //Com o google
+  Future<void> _signInWithGoogle() async {
+  try {
+    final GoogleSignIn googleSignIn = GoogleSignIn();
+    final GoogleSignInAccount? googleUser = await googleSignIn.signIn();
+
+    if (googleUser == null) {
+      _showSnackBar('Login com Google cancelado.', Colors.red);
+      return;
+    }
+
+    final GoogleSignInAuthentication googleAuth = await googleUser.authentication;
+
+    final credential = GoogleAuthProvider.credential(
+      accessToken: googleAuth.accessToken,
+      idToken: googleAuth.idToken,
+    );
+
+    // Realiza o login com o Firebase
+    await _auth.signInWithCredential(credential);
+
+    
+    // Navega para a página inicial após o login bem-sucedido
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(builder: (context) => Home()),
+    );
+  } catch (e) {
+    _showSnackBar('Erro no login com Google: $e', Colors.red);
+  }
+}
 
   // Método para exibir uma mensagem na parte inferior da tela (SnackBar)
   void _showSnackBar(String message, Color color) {
@@ -221,30 +256,11 @@ class _LoginScreenState extends State<LoginScreen> {
                 children: [
                   // Ícone do Google
                   GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      _signInWithGoogle();
+                    },
                     child: CircleAvatar(
                       backgroundImage: AssetImage('assets/google_icon.png'),
-                      backgroundColor: Colors.transparent,
-                      radius: 20,
-                      
-                    ),
-                  ),
-                  SizedBox(width: 20),
-                  // Ícone do Instagram
-                  GestureDetector(
-                    onTap: () {},
-                    child: CircleAvatar(
-                      backgroundImage: AssetImage('assets/instagram_icon.png'),
-                      backgroundColor: Colors.transparent,
-                      radius: 20,
-                    ),
-                  ),
-                  SizedBox(width: 20),
-                  // Ícone do Facebook
-                  GestureDetector(
-                    onTap: () {},
-                    child: CircleAvatar(
-                      backgroundImage: AssetImage('assets/facebook_icon.png'),
                       backgroundColor: Colors.transparent,
                       radius: 20,
                     ),
