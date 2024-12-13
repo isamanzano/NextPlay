@@ -1,7 +1,8 @@
+// PÁGINA FEITO POR ISABELA MANZANO
+
 import 'package:flutter/material.dart';
-import 'package:projetostreaming/pages/login.dart';
-import 'package:projetostreaming/pages/home.dart';
-import 'package:projetostreaming/shared/style.dart';
+import 'package:vaidarcerto/pages/login.dart';
+import 'package:vaidarcerto/shared/style.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class CadastroScreen extends StatefulWidget {
@@ -30,7 +31,7 @@ class _CadastroScreenState extends State<CadastroScreen> {
         );
 
         // Tenta atualizar o nome do usuário
-        await userCredential.user!.updateDisplayName(_usernameController.text.trim());
+        await userCredential.user?.updateDisplayName(_usernameController.text.trim());
         await userCredential.user!.reload();
         _auth.currentUser; // Recarrega o usuário atualizado
 
@@ -56,6 +57,7 @@ class _CadastroScreenState extends State<CadastroScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      
       backgroundColor: Colors.transparent,
      
    
@@ -87,7 +89,7 @@ class _CadastroScreenState extends State<CadastroScreen> {
           
           Center(
             child: Container(
-              height: 600,
+              height: 500,
               padding: const EdgeInsets.all(30),
               margin: const EdgeInsets.all(10),
               decoration: BoxDecoration(
@@ -133,65 +135,6 @@ class _CadastroScreenState extends State<CadastroScreen> {
                     return null;
                   },
                 ),
-
-                SizedBox(height: 20), 
-                  TextFormField(
-                    autofocus: true,
-                    decoration: InputDecoration(
-                      labelText: "Informe seu CPF",
-                            labelStyle: TextStyle(color: Colors.white),
-                            filled: true,
-                            fillColor: Colors.white.withOpacity(0.2),
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(20),
-                              borderSide: BorderSide(color: Colors.white, width: 2), 
-                              ),
-                              enabledBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(20),
-                              borderSide: BorderSide(color: Colors.white, width: 2), 
-                              ),
-                              focusedBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(20),
-                              borderSide: BorderSide(color: Colors.white, width: 2), 
-                              ),
-                    ),
-                    validator: (String? cpf) {
-                    if (cpf == "" || cpf == null) {
-                      return "Este campo não pode estar vazio";
-                    }
-                    return null;
-                  },
-                ),
-
-                SizedBox(height: 20), 
-                  TextFormField(
-                    autofocus: true,
-                    decoration: InputDecoration(
-                      labelText: "Informe seu Celular",
-                            labelStyle: TextStyle(color: Colors.white),
-                            filled: true,
-                            fillColor: Colors.white.withOpacity(0.2),
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(20),
-                              borderSide: BorderSide(color: Colors.white, width: 2), 
-                              ),
-                              enabledBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(20),
-                              borderSide: BorderSide(color: Colors.white, width: 2), 
-                              ),
-                              focusedBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(20),
-                              borderSide: BorderSide(color: Colors.white, width: 2),
-                              ),
-                    ),
-                    validator: (String? number) {
-                    if (number == "" || number == null) {
-                      return "Este campo não pode estar vazio";
-                    }
-                    return null;
-                  },
-                ),
-                   
                   SizedBox(height: 20),
                   TextFormField(
                     autofocus: true,
