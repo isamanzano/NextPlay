@@ -10,6 +10,7 @@ A NextPlay foi desenvolvida para ser o ponto de encontro de diversas comunidades
 - firebase_core: ^3.6.0
 - firebase_auth: ^5.3.1
 - google_sign_in: ^6.2.2
+- youtube_player_flutter: ^9.1.1
 
 ---
 
